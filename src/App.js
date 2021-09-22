@@ -13,11 +13,15 @@ function App() {
     const getPosts = async () => {
       try {
         const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts"
+          "https://dummyapi.io/data/v1/user?limit=50",
+          {
+            headers: {
+              "app-id": "613e64e2748b558d779ce190",
+            },
+          }
         );
-        console.log(response.data[0].title);
-        console.log(response.data);
-        setPosts(response.data);
+        console.log(response.data.data);
+        setPosts(response.data.data);
         setStatus("idle");
       } catch (error) {
         console.log(error);

@@ -1,24 +1,31 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import CardMedia from "@mui/material/CardMedia";
 
 const Post = ({ post }) => {
   return (
-    <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined" >
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {post.title}
-        </Typography>
-        <Typography variant="body2">
-         {post.body}
-        </Typography>
-      </CardContent>
-      </Card>
-    </Box>
-  )
-}
+    <Card sx={{ maxWidth: 275 }}>
+      <CardActionArea>
+        <CardContent>
+          <Typography variant="body2" color="text.secondary">
+            {post.title}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div">
+            {post.firstName} {post.lastName}
+          </Typography>
+        </CardContent>
+        <CardMedia
+          component="img"
+          height="140"
+          image={post.picture}
+          alt="green iguana"
+        />
+      </CardActionArea>
+    </Card>
+  );
+};
 
-export default Post
+export default Post;
